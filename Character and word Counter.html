@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Character and Word Counter</title>
+    <style>
+        body{
+            margin-left: 32%;
+            background-color: lightskyblue;
+        }
+        textarea {
+            width: 350px;
+            height: 160px;
+            margin-bottom: 10px;
+            resize: none;
+            margin-left: 50px;
+            box-shadow: 10px 10px 10px rgb(4, 22, 28);
+            
+            
+        }
+        #inputText{
+            font-family:cursive;
+            font-size: 15px;
+        }
+        #inputText::placeholder{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+        #p1{
+            margin-top: 20px;
+            margin-left: 140px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #p2{
+            margin-top: 10px;
+            margin-left: 155px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Character and Word Counter</h1>
+    <textarea id="inputText" placeholder="Enter text here..."></textarea>
+    <p id="p1">Character Count: <span id="charCount">0</span></p>
+    <p id="p2">Word Count: <span id="wordCount">0</span></p>
+
+    <script>
+        
+        function countCharsAndWords() {
+            let text = document.getElementById('inputText').value;
+            
+        
+            let charCount = text.length;
+            document.getElementById('charCount').textContent = charCount;
+
+        
+            let words = text.match(/\b\w+\b/g);
+            let wordCount = words ? words.length : 0;
+            document.getElementById('wordCount').textContent = wordCount;
+        }        
+        document.getElementById('inputText').addEventListener('input', countCharsAndWords);
+    </script>
+</body>
+</html>
